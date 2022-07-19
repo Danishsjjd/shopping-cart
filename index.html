@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home - Shopidy</title>
+		<link rel="stylesheet" href="./assets/css/styles.css" />
+		<!-- font-awesome-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body>
+		<header class="h-20 w-full bg-gray-800 text-white flex items-center">
+			<div class="cu-container flex items-center justify-between w-full">
+				<div class="">
+					<h2 class="text-4xl text-white font-semibold">Clothing Store</h2>
+				</div>
+				<a
+					href="./cart.html"
+					class="relative ml-auto w-10 h-10 rounded bg-white text-black flex items-center justify-center cursor-pointer"
+				>
+					<i class="fa-solid fa-cart-arrow-down text-2xl"></i>
+					<!-- toggle flex -->
+					<div
+						class="w-6 h-6 rounded-full bg-red-500 text-white absolute -top-2 -right-2 justify-center items-center text-lg font-medium hidden"
+					>
+						1
+					</div>
+				</a>
+			</div>
+		</header>
+
+		<main
+			class="py-12 cu-container grid md:grid-cols-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+			id="products"
+		></main>
+
+		<script src="./Data.js"></script>
+		<script src="./main.js"></script>
+	</body>
+</html>
