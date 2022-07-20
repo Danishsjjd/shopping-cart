@@ -4,7 +4,7 @@ let bucket = localStorage.getItem("bucket")
 	? JSON.parse(localStorage.getItem("bucket"))
 	: [];
 
-function renderHTMLProducts() {
+const renderHTMLProducts = () => {
 	return (products.innerHTML = shopItemsData
 		.map((product) => {
 			const { img, name, desc, price, id } = product;
@@ -30,53 +30,30 @@ function renderHTMLProducts() {
         `;
 		})
 		.join(""));
-}
+};
 renderHTMLProducts();
 
-function incrementCartItem(id) {
+const incrementCartItem = (id) => {
 	let isInBucket = bucket.find((x) => x.id == id);
-	let isFind = false;
-	if (isInBucket) {
-		isFind = true;
-		isInBucket.amount += 1;
-	} else {
-		isInBucket = {
+	if (!isInBucket) {
+		bucket.push({
 			id,
 			amount: 1,
-		};
-	}
-	if (isFind) {
-		bucket = bucket.map((items) => {
-			if (items.id == id) {
-				return isInBucket;
-			}
-			return items;
 		});
-	} else {
-		bucket.push(isInBucket);
-	}
+	} else isInBucket.amount += 1;
+
 	localStorage.setItem("bucket", JSON.stringify(bucket));
 	renderHTMLProducts();
-}
+};
 
-function decrementCartItem(id) {
+const decrementCartItem = (id) => {
 	let isInBucket = bucket.find((x) => x.id == id);
-	let isFind = false;
 	if (isInBucket) {
-		isFind = true;
 		isInBucket.amount -= 1;
 	} else return;
-	if (isFind) {
-		bucket = bucket.map((item) => {
-			if (item.id == id) {
-				return isInBucket;
-			}
-			return item;
-		});
-	}
-	if (isInBucket && isInBucket.amount == 0) {
+	if (isInBucket?.amount < 1) {
 		bucket = bucket.filter((item) => item.id != id);
 	}
 	localStorage.setItem("bucket", JSON.stringify(bucket));
 	renderHTMLProducts();
-}
+};
