@@ -1,4 +1,5 @@
-const products = document.getElementById("products");
+const products = document.getElementById("products"),
+	cartBadge = document.getElementById("cartBadge");
 
 let bucket = localStorage.getItem("bucket")
 	? JSON.parse(localStorage.getItem("bucket"))
@@ -44,6 +45,7 @@ const incrementCartItem = (id) => {
 
 	localStorage.setItem("bucket", JSON.stringify(bucket));
 	renderHTMLProducts();
+	updateCartButton();
 };
 
 const decrementCartItem = (id) => {
@@ -56,4 +58,13 @@ const decrementCartItem = (id) => {
 	}
 	localStorage.setItem("bucket", JSON.stringify(bucket));
 	renderHTMLProducts();
+	updateCartButton();
 };
+
+const updateCartButton = () => {
+	let cartBadgeNumber = bucket.length;
+	if (cartBadgeNumber == 0) return (cartBadge.style.display = "none");
+	cartBadge.style.display = "flex";
+	cartBadge.textContent = cartBadgeNumber;
+};
+updateCartButton();

@@ -32,6 +32,7 @@
 					<!-- toggle flex -->
 					<div
 						class="w-6 h-6 rounded-full bg-red-500 text-white absolute -top-2 -right-2 justify-center items-center text-lg font-medium hidden"
+						id="cartBadge"
 					>
 						1
 					</div>
@@ -41,39 +42,23 @@
 
 		<main class="w-96 mx-auto py-10">
 			<div>
-				<h3 class="text-4xl font-bold text-center">Total Bill: 190</h3>
+				<h3 class="text-4xl font-bold text-center">
+					Total Bill:
+					<span id="totalPrice">total price</span>
+				</h3>
 				<div class="text-center mt-2">
-					<button class="btn bg-green-600">checkout</button>
-					<button class="btn bg-red-600">clear cart</button>
+					<button class="btn bg-green-600" onclick="clearCart()">
+						checkout
+					</button>
+					<button class="btn bg-red-600" onclick="clearCart()">
+						clear cart
+					</button>
 				</div>
 			</div>
-			<div class="py-5">
-				<div
-					class="w-full flex max-h-[130px] mb-4 border-2 border-solid border-black rounded overflow-hidden"
-					id="card"
-				>
-					<img
-						src="./assets/images/img-1.jpg"
-						alt="first image"
-						class="w-[35%] max-h-full h-full object-cover"
-					/>
-					<div class="w-[65%] flex flex-col justify-evenly px-3">
-						<div class="flex justify-between">
-							<div class="flex gap-2">
-								<h4 class="text-xl font-medium">title</h4>
-								<div class="bg-black text-white rounded p-1">$ 45</div>
-							</div>
-							<div class="text-xl font-bold cursor-pointer">X</div>
-						</div>
-						<div class="text-xl select-none">
-							<span class="cursor-pointer">-</span>
-							<span>0</span>
-							<span class="text-amber-500 cursor-pointer">+</span>
-						</div>
-						<div class="font-medium text-2xl">total price</div>
-					</div>
-				</div>
-			</div>
+
+			<div class="py-5" id="cartProducts"></div>
 		</main>
+		<script src="./Data.js"></script>
+		<script src="./cart.js"></script>
 	</body>
 </html>
