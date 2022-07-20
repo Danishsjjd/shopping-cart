@@ -1,18 +1,20 @@
 {
-  "name": "cart-src",
-  "version": "1.0.0",
-  "description": "",
-  "main": "Data.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.6",
-    "vite": "^3.0.2"
-  }
+	"name": "cart-src",
+	"version": "1.0.0",
+	"description": "",
+	"main": "Data.js",
+	"scripts": {
+		"start": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"autoprefixer": "^10.4.7",
+		"postcss": "^8.4.14",
+		"tailwindcss": "^3.1.6",
+		"vite": "^3.0.2"
+	}
 }
